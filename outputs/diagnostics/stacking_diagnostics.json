@@ -1,0 +1,71 @@
+{
+  "used": true,
+  "alpha_by_fold": [
+    30.0,
+    30.0,
+    30.0,
+    30.0,
+    30.0
+  ],
+  "final_alpha": 30.0,
+  "fold_scores": [
+    {
+      "model": "stack_ridge_meta",
+      "fold": 1,
+      "mse": 58.06317987534822,
+      "rmse": 7.619919938906722,
+      "alpha": 30.0
+    },
+    {
+      "model": "stack_ridge_meta",
+      "fold": 2,
+      "mse": 59.75643118682386,
+      "rmse": 7.7302284045701946,
+      "alpha": 30.0
+    },
+    {
+      "model": "stack_ridge_meta",
+      "fold": 3,
+      "mse": 58.64283779888142,
+      "rmse": 7.657861176521903,
+      "alpha": 30.0
+    },
+    {
+      "model": "stack_ridge_meta",
+      "fold": 4,
+      "mse": 57.57327891243825,
+      "rmse": 7.587705773976627,
+      "alpha": 30.0
+    },
+    {
+      "model": "stack_ridge_meta",
+      "fold": 5,
+      "mse": 57.87185096474449,
+      "rmse": 7.607355057097341,
+      "alpha": 30.0
+    }
+  ],
+  "feature_names": [
+    "pred__lgbm_deep_xlong",
+    "pred__lgbm_deep_xlong_seed2",
+    "pred__lgbm_deep_bagged_xlong",
+    "pred__lgbm_deep_bagged_xlong_seed2",
+    "pred_mean",
+    "pred_std",
+    "pred_min",
+    "pred_max",
+    "pred_range"
+  ],
+  "coefficients": {
+    "pred__lgbm_deep_xlong": 5.294519355651077,
+    "pred__lgbm_deep_xlong_seed2": 6.006452488902292,
+    "pred__lgbm_deep_bagged_xlong": 0.9565558526667299,
+    "pred__lgbm_deep_bagged_xlong_seed2": 2.9717450568769403,
+    "pred_mean": 3.8086882894057323,
+    "pred_std": 0.06255411756862331,
+    "pred_min": 3.128830488772072,
+    "pred_max": 3.1385164462927397,
+    "pred_range": -0.06340878438043969
+  },
+  "intercept": 54.18352067678252
+}

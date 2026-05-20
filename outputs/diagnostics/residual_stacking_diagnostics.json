@@ -1,0 +1,597 @@
+{
+  "used": true,
+  "base_constraint_mse": 53.858996373408395,
+  "residual_corrected_mse": 53.681833762340844,
+  "best_gamma": 1.0,
+  "selected_gamma_strategy": "subgroup__alg_available",
+  "residual_meta_bagging_seeds": [
+    20269513,
+    20269530,
+    20269554
+  ],
+  "n_residual_meta_members": 3,
+  "fold_scores": [
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269513,
+      "fold": 1,
+      "residual_mse": 53.903061434447,
+      "best_iteration": 83
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269513,
+      "fold": 2,
+      "residual_mse": 53.571891327417376,
+      "best_iteration": 494
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269513,
+      "fold": 3,
+      "residual_mse": 53.589656590889675,
+      "best_iteration": 126
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269513,
+      "fold": 4,
+      "residual_mse": 53.03217772865605,
+      "best_iteration": 159
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269513,
+      "fold": 5,
+      "residual_mse": 54.41601709746307,
+      "best_iteration": 634
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269530,
+      "fold": 1,
+      "residual_mse": 53.88805377874994,
+      "best_iteration": 85
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269530,
+      "fold": 2,
+      "residual_mse": 53.556278614867,
+      "best_iteration": 844
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269530,
+      "fold": 3,
+      "residual_mse": 53.58466099505071,
+      "best_iteration": 137
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269530,
+      "fold": 4,
+      "residual_mse": 53.02313953489384,
+      "best_iteration": 301
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269530,
+      "fold": 5,
+      "residual_mse": 54.41449157552546,
+      "best_iteration": 899
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269554,
+      "fold": 1,
+      "residual_mse": 53.89845553545403,
+      "best_iteration": 90
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269554,
+      "fold": 2,
+      "residual_mse": 53.5422916355286,
+      "best_iteration": 649
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269554,
+      "fold": 3,
+      "residual_mse": 53.58736497995132,
+      "best_iteration": 167
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269554,
+      "fold": 4,
+      "residual_mse": 53.04120418816162,
+      "best_iteration": 303
+    },
+    {
+      "model": "residual_lgbm_meta_bagged",
+      "seed": 20269554,
+      "fold": 5,
+      "residual_mse": 54.42761676936152,
+      "best_iteration": 473
+    }
+  ],
+  "gamma_grid": [
+    {
+      "gamma": 0.0,
+      "mse": 53.858996373408395,
+      "rmse": 7.338868875610764
+    },
+    {
+      "gamma": 0.02,
+      "mse": 53.85283940322227,
+      "rmse": 7.338449386840674
+    },
+    {
+      "gamma": 0.04,
+      "mse": 53.846798671552925,
+      "rmse": 7.3380377943666195
+    },
+    {
+      "gamma": 0.06,
+      "mse": 53.84087404427935,
+      "rmse": 7.337634090378135
+    },
+    {
+      "gamma": 0.08,
+      "mse": 53.835065405791646,
+      "rmse": 7.337238268299023
+    },
+    {
+      "gamma": 0.1,
+      "mse": 53.82937211816629,
+      "rmse": 7.336850285931034
+    },
+    {
+      "gamma": 0.125,
+      "mse": 53.82240767396523,
+      "rmse": 7.336375649730951
+    },
+    {
+      "gamma": 0.15,
+      "mse": 53.81562388194417,
+      "rmse": 7.335913295694284
+    },
+    {
+      "gamma": 0.2,
+      "mse": 53.80259729494244,
+      "rmse": 7.335025377934451
+    },
+    {
+      "gamma": 0.25,
+      "mse": 53.79029148229649,
+      "rmse": 7.334186490831583
+    },
+    {
+      "gamma": 0.3,
+      "mse": 53.77870518081094,
+      "rmse": 7.333396565085713
+    },
+    {
+      "gamma": 0.4,
+      "mse": 53.75768746933618,
+      "rmse": 7.331963411620122
+    },
+    {
+      "gamma": 0.5,
+      "mse": 53.739545010024656,
+      "rmse": 7.330726090233126
+    },
+    {
+      "gamma": 0.65,
+      "mse": 53.71760322051334,
+      "rmse": 7.329229374259843
+    },
+    {
+      "gamma": 0.8,
+      "mse": 53.702042232702354,
+      "rmse": 7.328167726840206
+    },
+    {
+      "gamma": 0.9,
+      "mse": 53.69524618315788,
+      "rmse": 7.327704018528442
+    },
+    {
+      "gamma": 1.0,
+      "mse": 53.69131194172334,
+      "rmse": 7.327435563805617
+    }
+  ],
+  "group_strategy_scores": [
+    {
+      "strategy": "global",
+      "mse": 53.69131194172334,
+      "rmse": 7.327435563805617,
+      "selected": false
+    },
+    {
+      "strategy": "alg_available",
+      "mse": 53.683217435319726,
+      "rmse": 7.326883200605816,
+      "selected": false
+    },
+    {
+      "strategy": "alg_available__n_bucket",
+      "mse": 53.68329634475576,
+      "rmse": 7.3268885855290415,
+      "selected": false
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "mse": 53.681833762340844,
+      "rmse": 7.326788775605643,
+      "selected": true
+    },
+    {
+      "strategy": "subgroup__alg_available__n_bucket",
+      "mse": 53.683548723440055,
+      "rmse": 7.326905808282242,
+      "selected": false
+    }
+  ],
+  "selected_group_gammas": [
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "All Students__NO_ALG",
+      "n_rows": 20707,
+      "group_best_gamma": 1.0,
+      "shrunk_gamma": 1.0,
+      "group_best_mse": 89.69701812519907
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Male__NO_ALG",
+      "n_rows": 19138,
+      "group_best_gamma": 1.0,
+      "shrunk_gamma": 1.0,
+      "group_best_mse": 77.11946372885808
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Female__NO_ALG",
+      "n_rows": 18956,
+      "group_best_gamma": 1.0,
+      "shrunk_gamma": 1.0,
+      "group_best_mse": 79.37141619267094
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Economically Disadvantaged__NO_ALG",
+      "n_rows": 16376,
+      "group_best_gamma": 1.0,
+      "shrunk_gamma": 1.0,
+      "group_best_mse": 73.5554603370885
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "All Students__ALG",
+      "n_rows": 16004,
+      "group_best_gamma": 0.02,
+      "shrunk_gamma": 0.265,
+      "group_best_mse": 0.026047905865356557
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Not Economically Disadvantaged__NO_ALG",
+      "n_rows": 15904,
+      "group_best_gamma": 0.8,
+      "shrunk_gamma": 0.8500000000000001,
+      "group_best_mse": 107.5499624861705
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Male__ALG",
+      "n_rows": 10225,
+      "group_best_gamma": 0.06,
+      "shrunk_gamma": 0.295,
+      "group_best_mse": 0.14345919105810787
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Female__ALG",
+      "n_rows": 10154,
+      "group_best_gamma": 0.04,
+      "shrunk_gamma": 0.28,
+      "group_best_mse": 0.15754345929696098
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Economically Disadvantaged__ALG",
+      "n_rows": 8761,
+      "group_best_gamma": 0.02,
+      "shrunk_gamma": 0.265,
+      "group_best_mse": 0.9226854936472071
+    },
+    {
+      "strategy": "subgroup__alg_available",
+      "group": "Not Economically Disadvantaged__ALG",
+      "n_rows": 8696,
+      "group_best_gamma": 0.02,
+      "shrunk_gamma": 0.265,
+      "group_best_mse": 1.7366947830539945
+    }
+  ],
+  "residual_correction_cap_grid": [
+    {
+      "cap": "none",
+      "mse": 53.681833762340844,
+      "rmse": 7.326788775605643,
+      "selected": true
+    },
+    {
+      "cap": 0.5,
+      "mse": 53.77530811952505,
+      "rmse": 7.333164945610118,
+      "selected": false
+    },
+    {
+      "cap": 1.0,
+      "mse": 53.74383658694997,
+      "rmse": 7.331018795975766,
+      "selected": false
+    },
+    {
+      "cap": 1.5,
+      "mse": 53.72295212137607,
+      "rmse": 7.329594267173052,
+      "selected": false
+    },
+    {
+      "cap": 2.0,
+      "mse": 53.709429113497016,
+      "rmse": 7.32867171549504,
+      "selected": false
+    },
+    {
+      "cap": 3.0,
+      "mse": 53.69176745571724,
+      "rmse": 7.32746664651005,
+      "selected": false
+    },
+    {
+      "cap": 5.0,
+      "mse": 53.68273642200239,
+      "rmse": 7.32685037529786,
+      "selected": false
+    },
+    {
+      "cap": 8.0,
+      "mse": 53.68183777377291,
+      "rmse": 7.326789049356677,
+      "selected": false
+    },
+    {
+      "cap": 12.0,
+      "mse": 53.681833762340844,
+      "rmse": 7.326788775605643,
+      "selected": false
+    }
+  ],
+  "selected_residual_correction_cap": "none",
+  "feature_importance": [
+    {
+      "feature": "base_pred_range",
+      "importance": 560.6666666666666
+    },
+    {
+      "feature": "base_pred_std",
+      "importance": 553.6666666666666
+    },
+    {
+      "feature": "base_pred__lgbm_logit_countaware",
+      "importance": 370.6666666666667
+    },
+    {
+      "feature": "N_STUDENTS",
+      "importance": 311.3333333333333
+    },
+    {
+      "feature": "base_pred__lgbm_deep_xlong",
+      "importance": 160.33333333333334
+    },
+    {
+      "feature": "base_pred_max",
+      "importance": 141.66666666666666
+    },
+    {
+      "feature": "base_pred__lgbm_deep_xlong_seed2",
+      "importance": 136.0
+    },
+    {
+      "feature": "base_pred_min",
+      "importance": 136.0
+    },
+    {
+      "feature": "base_pred__lgbm_countaware",
+      "importance": 122.33333333333333
+    },
+    {
+      "feature": "abs_constraint_minus_raw",
+      "importance": 120.0
+    },
+    {
+      "feature": "base_pred__lgbm_countaware_seed2",
+      "importance": 113.0
+    },
+    {
+      "feature": "alg_pred_filled",
+      "importance": 107.66666666666667
+    },
+    {
+      "feature": "base_pred__lgbm_deep_bagged_xlong",
+      "importance": 101.33333333333333
+    },
+    {
+      "feature": "constraint_blend",
+      "importance": 100.33333333333333
+    },
+    {
+      "feature": "constraint_minus_raw",
+      "importance": 99.0
+    },
+    {
+      "feature": "log1p_N_STUDENTS",
+      "importance": 98.0
+    },
+    {
+      "feature": "SUBGROUP_NAME_Not Economically Disadvantaged",
+      "importance": 96.66666666666667
+    },
+    {
+      "feature": "alg_available",
+      "importance": 69.0
+    },
+    {
+      "feature": "ASSESSMENT_FAMILY_GRADE_3_8",
+      "importance": 58.666666666666664
+    },
+    {
+      "feature": "base_pred_mean",
+      "importance": 58.333333333333336
+    },
+    {
+      "feature": "abs_alg_minus_raw",
+      "importance": 44.0
+    },
+    {
+      "feature": "SUBGROUP_NAME_Economically Disadvantaged",
+      "importance": 41.0
+    },
+    {
+      "feature": "raw_blend",
+      "importance": 40.333333333333336
+    },
+    {
+      "feature": "inv_sqrt_N_STUDENTS",
+      "importance": 36.0
+    },
+    {
+      "feature": "SUBJECT_SCIENCE",
+      "importance": 28.333333333333332
+    },
+    {
+      "feature": "DISTRICT_TYPE_Average Need",
+      "importance": 26.0
+    },
+    {
+      "feature": "SUBGROUP_NAME_All Students",
+      "importance": 24.0
+    },
+    {
+      "feature": "DISTRICT_TYPE_NYC",
+      "importance": 22.666666666666668
+    },
+    {
+      "feature": "SUBJECT_MATH",
+      "importance": 19.333333333333332
+    },
+    {
+      "feature": "SUBJECT_ELA",
+      "importance": 19.0
+    },
+    {
+      "feature": "DISTRICT_TYPE_Other Large City",
+      "importance": 19.0
+    },
+    {
+      "feature": "DISTRICT_TYPE_High-Need Urban/Suburban",
+      "importance": 16.666666666666668
+    },
+    {
+      "feature": "ASSESSMENT_FAMILY_REGENTS",
+      "importance": 15.666666666666666
+    },
+    {
+      "feature": "SUBGROUP_NAME_Male",
+      "importance": 15.666666666666666
+    },
+    {
+      "feature": "alg_minus_raw",
+      "importance": 14.666666666666666
+    },
+    {
+      "feature": "DISTRICT_TYPE_Charter School",
+      "importance": 14.0
+    },
+    {
+      "feature": "SUBGROUP_NAME_Female",
+      "importance": 12.0
+    },
+    {
+      "feature": "GRADE_BAND_MIDDLE",
+      "importance": 12.0
+    },
+    {
+      "feature": "DISTRICT_TYPE_Low Need",
+      "importance": 10.0
+    },
+    {
+      "feature": "GRADE_BAND_ELEMENTARY",
+      "importance": 9.333333333333334
+    },
+    {
+      "feature": "alg_method_NONE",
+      "importance": 9.0
+    },
+    {
+      "feature": "GRADE_BAND_UNKNOWN",
+      "importance": 6.666666666666667
+    },
+    {
+      "feature": "DISTRICT_TYPE_High-Need Rural",
+      "importance": 5.666666666666667
+    },
+    {
+      "feature": "midrange_pred",
+      "importance": 3.3333333333333335
+    },
+    {
+      "feature": "SUBJECT_HISTORY",
+      "importance": 3.0
+    },
+    {
+      "feature": "near_hundred_pred",
+      "importance": 3.0
+    },
+    {
+      "feature": "GRADE_BAND_REGENTS",
+      "importance": 1.6666666666666667
+    },
+    {
+      "feature": "alg_method_ECON_SOLVE",
+      "importance": 1.6666666666666667
+    },
+    {
+      "feature": "medium_n",
+      "importance": 1.3333333333333333
+    },
+    {
+      "feature": "small_n",
+      "importance": 1.0
+    },
+    {
+      "feature": "alg_method_MF_SOLVE",
+      "importance": 1.0
+    },
+    {
+      "feature": "near_zero_pred",
+      "importance": 0.6666666666666666
+    },
+    {
+      "feature": "large_n",
+      "importance": 0.0
+    },
+    {
+      "feature": "alg_method_ALL_WEIGHTED",
+      "importance": 0.0
+    }
+  ],
+  "n_meta_features": 54
+}

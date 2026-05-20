@@ -1,0 +1,203 @@
+{
+  "used": false,
+  "reason": "oof_gain_below_public_safety_threshold",
+  "base_mse": 53.681833762340844,
+  "sibling_candidate_alone_mse": 94.5273676855402,
+  "selected_mse": 53.681833762340844,
+  "raw_best_mse_before_threshold": 53.681833762340844,
+  "oof_improvement_before_threshold": 0.0,
+  "min_required_improvement": 0.03,
+  "best_global_alpha": 0.0,
+  "selected_strategy": "none",
+  "oof_coverage": 0.9127938670034018,
+  "test_coverage": 0.9422029933550004,
+  "alpha_grid": [
+    {
+      "strategy": "global",
+      "alpha": 0.0,
+      "mse": 53.681833762340844,
+      "rmse": 7.326788775605643,
+      "selected": true
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.02,
+      "mse": 53.74121264765768,
+      "rmse": 7.330839832356023,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.04,
+      "mse": 53.83151119800093,
+      "rmse": 7.33699606092309,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.06,
+      "mse": 53.9527294133706,
+      "rmse": 7.345252168126741,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.08,
+      "mse": 54.10486729376668,
+      "rmse": 7.355601083104404,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.1,
+      "mse": 54.28792483918917,
+      "rmse": 7.3680339873801595,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.125,
+      "mse": 54.5602275499107,
+      "rmse": 7.386489528179858,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.15,
+      "mse": 54.88084223723598,
+      "rmse": 7.408160516432941,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.2,
+      "mse": 55.66700754169787,
+      "rmse": 7.461032605591392,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.25,
+      "mse": 56.64642075257485,
+      "rmse": 7.52638165073861,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.3,
+      "mse": 57.81908186986692,
+      "rmse": 7.60388597165074,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.4,
+      "mse": 60.74414782369632,
+      "rmse": 7.793853207733408,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.5,
+      "mse": 64.44220540318608,
+      "rmse": 8.027590261291746,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.65,
+      "mse": 71.4386510705339,
+      "rmse": 8.45213884590959,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 0.8,
+      "mse": 80.1743278956175,
+      "rmse": 8.954011832447927,
+      "selected": false
+    },
+    {
+      "strategy": "global",
+      "alpha": 1.0,
+      "mse": 94.5273676855402,
+      "rmse": 9.722518587564654,
+      "selected": false
+    }
+  ],
+  "subgroup_alpha_rows": [
+    {
+      "subgroup": "All Students",
+      "n_oof_rows_with_sibling": 28491,
+      "group_best_alpha": 0.0,
+      "shrunk_alpha": 0.0,
+      "group_best_mse": 13.533900199581586
+    },
+    {
+      "subgroup": "Economically Disadvantaged",
+      "n_oof_rows_with_sibling": 24350,
+      "group_best_alpha": 0.0,
+      "shrunk_alpha": 0.0,
+      "group_best_mse": 42.60253747644305
+    },
+    {
+      "subgroup": "Female",
+      "n_oof_rows_with_sibling": 27697,
+      "group_best_alpha": 0.0,
+      "shrunk_alpha": 0.0,
+      "group_best_mse": 43.44227547643273
+    },
+    {
+      "subgroup": "Male",
+      "n_oof_rows_with_sibling": 27894,
+      "group_best_alpha": 0.0,
+      "shrunk_alpha": 0.0,
+      "group_best_mse": 41.47864328065668
+    },
+    {
+      "subgroup": "Not Economically Disadvantaged",
+      "n_oof_rows_with_sibling": 23851,
+      "group_best_alpha": 0.0,
+      "shrunk_alpha": 0.0,
+      "group_best_mse": 64.97248192500763
+    }
+  ],
+  "fold_infos": [
+    {
+      "coverage": 0.9090909090909091,
+      "rows_with_prediction": 26350,
+      "mean_candidate_count": 2.3308159392789376,
+      "fold": 1
+    },
+    {
+      "coverage": 0.9130209770908088,
+      "rows_with_prediction": 26463,
+      "mean_candidate_count": 2.338888259078714,
+      "fold": 2
+    },
+    {
+      "coverage": 0.9135040022081148,
+      "rows_with_prediction": 26477,
+      "mean_candidate_count": 2.3309287305963666,
+      "fold": 3
+    },
+    {
+      "coverage": 0.9113303891802373,
+      "rows_with_prediction": 26414,
+      "mean_candidate_count": 2.3300901037328687,
+      "fold": 4
+    },
+    {
+      "coverage": 0.9170231852056306,
+      "rows_with_prediction": 26579,
+      "mean_candidate_count": 2.3242409420971444,
+      "fold": 5
+    }
+  ],
+  "test_info": {
+    "coverage": 0.9422029933550004,
+    "rows_with_prediction": 45515,
+    "mean_candidate_count": 2.8243875645391627
+  },
+  "note": "Same-subgroup anchors are ignored; OOF anchors are fold-pure; test anchors use all training labels."
+}

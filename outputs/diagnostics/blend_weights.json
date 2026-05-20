@@ -1,0 +1,8 @@
+{
+  "lgbm_deep_xlong": 0.06063822270704171,
+  "lgbm_deep_xlong_seed2": 0.18330380770100177,
+  "lgbm_deep_bagged_xlong": 0.21077096491299613,
+  "lgbm_countaware": 0.2820721342020553,
+  "lgbm_countaware_seed2": 0.20832255598933214,
+  "lgbm_logit_countaware": 0.05489231448757287
+}

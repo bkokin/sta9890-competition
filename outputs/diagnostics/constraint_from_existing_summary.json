@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-05-11T15:27:20",
+  "blend_used": {
+    "lgbm": 0.356321586758916,
+    "cat": 0.643678413241084
+  },
+  "algebra_trust": 1.0,
+  "algebra_coverage_test": 0.565073384809655,
+  "method_counts": {
+    "NONE": 21010,
+    "MF_SOLVE": 10674,
+    "ECON_SOLVE": 9013,
+    "ALL_WEIGHTED": 7610
+  },
+  "primary_submission": "C:\\Users\\brand\\OneDrive\\Desktop\\2026 Spring\\STA 9880 - Data Mining\\Github\\sta9890-competition\\outputs\\submissions\\submission_constraint_from_existing_20260511_152719.csv"
+}
