@@ -1,34 +1,36 @@
-# STA 9890 Course Prediction Competition
+# STA 9890 Data Mining Competition | First Place
 
-This repository contains the final modeling pipeline for the STA 9890 Course Prediction Competition. The goal is to predict `PERCENT_PROFICIENT` for New York State assessment records at the school, subgroup, and assessment level.
+![Competition result: First Place](https://img.shields.io/badge/Competition%20Result-1st%20Place-gold)
+![Public leaderboard MSE: 31.873](https://img.shields.io/badge/Public%20MSE-31.873-blue)
+![Model: LightGBM Ensemble](https://img.shields.io/badge/Model-LightGBM%20Ensemble-green)
 
-The final selected model is implemented in:
+**First-place winning solution for the STA 9890 graduate data mining competition at Baruch College, Spring 2026.**
 
-```text
-sta9890_competition_model_v20_structural_repaired.py
-```
+This repository documents my winning approach to predicting New York State assessment proficiency at the school, subgroup, and assessment level. The final pipeline combines six LightGBM models with different hyperparameters and random seeds, out-of-fold (OOF) optimized blending, count-space subgroup constraints, and residual meta-calibration.
 
-The selected final submission from my run was:
+## Competition results
 
-```text
-outputs/submissions/submission_final_20260518_001121.csv
-```
+| Metric | Result |
+|---|---:|
+| Final competition placement | **1st place** |
+| Selected submission public leaderboard MSE | **31.873** |
+| Final OOF validation MSE | 53.6933 |
+| Final OOF validation RMSE | 7.3276 |
+| Training observations | 144,921 |
+| Test observations | 48,307 |
+| Schools | 4,754 |
+| Models in final ensemble | 6 |
 
-Final public leaderboard MSE:
+The public leaderboard score is the score of my selected submission, not a claim about the final private leaderboard MSE. The final competition placement was first overall.
 
-```text
-31.873
-```
+**Final model script:** `sta9890_competition_model_v20_structural_repaired.py`  
+**Selected submission:** `submission_final_20260518_001121.csv`
 
-Final out-of-fold validation MSE:
-
-```text
-53.69
-```
+The key lesson from the class presentations was that LightGBM alone was not the differentiator. Several classmates also used LightGBM. My approach combined multiple configurations of the same algorithm to diversify prediction errors, then used the mathematical relationships between subgroup results to improve the blended predictions.
 
 ## Project summary
 
-The final model is a leakage-safe LightGBM ensemble with structure-aware post-processing. The core idea is:
+The final model is a LightGBM ensemble with fold-aware feature engineering and structure-aware post-processing. The core idea is:
 
 ```text
 LightGBM ensemble
@@ -64,7 +66,7 @@ project_folder/
 
 Important note on folder case:
 
-The script looks for the data folder at `data/raw/`. On Windows, `data/Raw/` will usually work because file paths are case-insensitive. For portability on GitHub or case-sensitive systems, use lowercase `raw`.
+The script looks for the data folder at `data/raw/`. On a typical Windows filesystem, `data/Raw/` also works. Use lowercase `raw` for portability to case-sensitive systems.
 
 ## Required data files
 
@@ -81,7 +83,7 @@ No external data are used. The model is designed to use only the instructor-prov
 
 ## Python environment
 
-The code was developed in Python 3.12. The main packages used are:
+The original development environment used Python 3.12. The main packages required for the default LightGBM pipeline are:
 
 ```text
 numpy
@@ -95,7 +97,7 @@ A simple setup is:
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\activate
-pip install numpy pandas scikit-learn lightgbm
+python -m pip install numpy pandas scikit-learn lightgbm
 ```
 
 On macOS or Linux:
@@ -103,7 +105,7 @@ On macOS or Linux:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install numpy pandas scikit-learn lightgbm
+python -m pip install numpy pandas scikit-learn lightgbm
 ```
 
 ## How to run the final model
@@ -114,7 +116,7 @@ From the main project directory, run:
 python sta9890_competition_model_v20_structural_repaired.py
 ```
 
-The full run can take a while because it trains multiple LightGBM models across cross-validation folds and saves diagnostic files.
+The default run trains all six LightGBM variants using five outer and five inner folds. It is computationally intensive. For a reproduction run, use the full data and default settings. A new run creates a new timestamped submission rather than reusing the original filename. Record package versions using `python -m pip freeze` and consult the original run metadata if available; exact numerical reproducibility can depend on package versions, hardware, and thread settings.
 
 ## Smoke test
 
@@ -177,7 +179,6 @@ submission_final.csv
 submission_raw_blend_<timestamp>.csv
 submission_pairwise_constraint_blend_<timestamp>.csv
 submission_chosen_constraint_base_<timestamp>.csv
-submission_pre_sibling_rescue_<timestamp>.csv
 ```
 
 The Kaggle-ready file has two columns:
@@ -200,6 +201,8 @@ Important files in `outputs/diagnostics/` include:
 ```text
 cv_model_summary.csv
 cv_fold_scores.csv
+blend_weights.json
+run_metadata.json
 oof_predictions.csv
 overfitting_summary.csv
 constraint_weights.json
@@ -272,7 +275,7 @@ Final raw blend weights:
 | `lgbm_deep_xlong` | 6.06% | Long deep baseline model |
 | `lgbm_logit_countaware` | 5.49% | Logit-scale count-aware diversity model |
 
-The count-aware models made up about 54.5% of the raw blend, which shows that `N_STUDENTS` and count reliability were central to the final predictions.
+The count-aware models made up about 54.5% of the raw blend. This reflects their contribution to the optimized ensemble, although blend weights alone do not measure the importance of individual features.
 
 ### 3. OOF-optimized blending
 
@@ -299,26 +302,29 @@ The most important extension was the count-space subgroup constraint layer.
 A pure LightGBM model predicts each row independently. However, subgroup rows within the same school-assessment block are related. For example:
 
 ```text
-All Students ~= Male + Female
-All Students ~= Economically Disadvantaged + Not Economically Disadvantaged
+All Students proficient count ~= Male proficient count + Female proficient count
+All Students proficient count ~= Economically Disadvantaged proficient count
+                                 + Not Economically Disadvantaged proficient count
 ```
 
 Instead of correcting percentages directly, the script converts predictions into inferred proficient counts:
 
 ```text
-predicted proficient count = predicted percent * N_STUDENTS
+predicted proficient count = (predicted percent / 100) * N_STUDENTS
 ```
 
-The solver then projects predictions back toward subgroup-consistent percentages.
+The solver projects predictions toward subgroup-consistent counts, using observed training subgroup outcomes as anchors where available and model estimates for unknown outcomes. Rounding, missing subgroup records, and differences in reported counts mean that not every relationship can be enforced exactly. The corrected counts are converted back to percentages. In the selected run, direct algebra was available for approximately 56.5% of test rows, while anchored projection covered approximately 92.4%.
 
 This layer produced the largest structural gain:
 
-| Stage | OOF MSE |
-|---|---:|
-| Raw LightGBM blend | 57.65 |
-| Pairwise constraint blend | 55.93 |
-| Anchored count solver | 53.86 |
-| Residual-meta final | 53.69 |
+| Stage | OOF MSE | OOF RMSE |
+|---|---:|---:|
+| Raw LightGBM blend | 57.6483 | 7.5926 |
+| Pairwise constraint blend | 55.9267 | 7.4784 |
+| Anchored count solver | 53.8590 | 7.3389 |
+| Residual-meta final | **53.6933** | **7.3276** |
+
+The full pipeline reduced OOF MSE by approximately 6.86% relative to the raw ensemble. Most of that reduction came from the subgroup constraints.
 
 ### 5. Residual meta-calibration
 
@@ -336,11 +342,11 @@ The residual model learns whether the constrained prediction still has systemati
 final prediction = constrained prediction + predicted residual correction
 ```
 
-This layer was kept because it improved OOF validation performance. More aggressive calibration layers were rejected when they did not generalize well enough.
+This layer was retained after it improved OOF MSE. An optional sibling-anchor calibration did not pass its acceptance threshold, and an additional bias correction was not retained. The selected final prediction label was `residual_meta_constraint_blend`.
 
 ## Validation and leakage controls
 
-The script was built around out-of-fold validation and fold-pure feature creation.
+The script uses out-of-fold validation and fold-specific target feature construction.
 
 Important controls:
 
@@ -349,32 +355,18 @@ Important controls:
 - Validation rows do not create their own target-encoded features.
 - Blend weights are optimized using OOF predictions.
 - Constraint and residual layers are selected using OOF performance.
-- Test rows are used only as feature rows.
+- No hidden test targets are used; known training outcomes may inform related test rows.
 - No external data are used.
 - Predictions are clipped to the valid 0 to 100 range by default.
 ```
 
-## Final result
+The OOF predictions were also used to select blend weights and post-processing settings, so the reported final OOF error is a development estimate rather than a completely independent evaluation of the selected pipeline. Public leaderboard feedback was monitored during iteration. The public MSE and final competition placement should be interpreted separately from local validation results.
 
-Selected final submission:
+## Development workflow and lessons learned
 
-```text
-submission_final_20260518_001121.csv
-```
+More than 20 model iterations were evaluated throughout the competition. I saved and reviewed diagnostic files after major runs, including individual model scores, fold-level results, blend weights, and constraint and residual diagnostics. This helped identify which changes contributed to performance and which added unnecessary runtime or complexity.
 
-Final public leaderboard MSE:
-
-```text
-31.873
-```
-
-Final OOF MSE:
-
-```text
-53.69
-```
-
-The main takeaway is that the final model worked because it combined flexible machine learning with problem-specific structure. LightGBM captured nonlinear tabular patterns, while the count-space subgroup constraint layer corrected relationships that a row-by-row model would not learn perfectly on its own.
+The most valuable improvements came from diversifying the LightGBM ensemble, accounting for the student-count denominator, and exploiting subgroup relationships. The final first-place finish illustrates the value of pairing flexible machine learning with statistical knowledge of the prediction target.
 
 ## Troubleshooting
 
@@ -397,7 +389,7 @@ district_covariates.csv
 
 ### Folder named Raw instead of raw
 
-On Windows, `data/Raw/` may work. On GitHub, Linux, or other case-sensitive systems, use:
+On Windows, `data/Raw/` may work. On Linux or other case-sensitive systems, the folder name must match the path in the script. Use:
 
 ```text
 data/raw/
@@ -421,6 +413,6 @@ The script sets `LOKY_MAX_CPU_COUNT` to reduce harmless joblib warnings during K
 
 ## Academic integrity and data use
 
-This project uses only the course-provided data files. No external data are joined into the modeling pipeline.
+This project uses only the course-provided data files. No external data are joined into the modeling pipeline. Obtain the original files through authorized course access and do not redistribute them without permission. 
 
 The final report includes the required AI usage disclosure and describes how AI was used for coding, debugging, organization, and drafting support, while final modeling decisions and submitted work were reviewed and selected by the student.
